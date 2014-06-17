@@ -1,6 +1,7 @@
 import java.math.BigInteger;
 import java.util.Scanner;
 
+// add javadoc for the class and methods
 public class Rational {
 
 	private final BigInteger myN;       //Numerator
@@ -17,6 +18,8 @@ public class Rational {
 		myD = BigInteger.valueOf(1);
 	}
 
+	// how can u use Rational(BigInteger numerator, BigInteger denominator) here 
+	// to avoid code duplication
 	public Rational(int numerator, int denominator) {    //Takes 2 inputs 1 for the numerator and 1 for the denominator
 		myN = BigInteger.valueOf(numerator);
 		if (denominator != 0) {
@@ -27,8 +30,9 @@ public class Rational {
 		
 	}
 	
+	// what happen if D is "0"
+	// how can u use Rational(BigInteger numerator, BigInteger denominator) here 
 	public Rational(String N, String D) {
-		
 		Integer intn = null;
 		Integer intd = null;
 		intn=intn.parseInt(N);
@@ -114,7 +118,9 @@ public class Rational {
 
 		return createSimplifiedRational(N,D);
 	}
-	
+
+	// can u change signature to standard java equals method
+	// see http://docs.oracle.com/javase/7/docs/api/java/lang/Object.html#equals%28java.lang.Object%29
 	public boolean isEqual(Rational other)
 	{
 		return ((this.myD.equals(other.myD))&&(this.myN.equals(other.myN)));

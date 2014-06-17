@@ -94,11 +94,13 @@ public class RationalGUI extends JFrame implements  ActionListener  {
         });
     }
     
+    // maybe move isNumber and isTooBig to separate class
     public static boolean isNumber(String s)
 	{
 		for(int x = 0; x < s.length(); x++)
 		{	
 			int charnum = (int)(s.charAt(x));
+			// hard to know what these values mean
 			if(x==0 && charnum==45){}
 			else if(charnum < 48 || charnum > 57){return false;}
 		}
@@ -107,6 +109,7 @@ public class RationalGUI extends JFrame implements  ActionListener  {
     
     public static boolean isTooBig(String s)
    	{
+    	// combine ifs
     	if(s.startsWith("-"))
     	{
     		if(s.length()>10){return true;}
@@ -158,7 +161,7 @@ public class RationalGUI extends JFrame implements  ActionListener  {
 			else if (e.getSource() == multipleButton){rAnswer = r1.multiply(r2);}                   //Performs operations
 			else if (e.getSource() == subtractButton){rAnswer = r1.subtract(r2);}
 			else if (e.getSource() == addButton){rAnswer = r1.add(r2);}
-			
+			// you don't need toString here compiler will figure it out
 			answerFeild.setText(rAnswer.toString());                                          //prints answer
 			
 		}
