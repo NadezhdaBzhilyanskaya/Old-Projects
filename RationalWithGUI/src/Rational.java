@@ -92,6 +92,7 @@ public class Rational {
 		return createSimplifiedRational(N,D);
 	}
 	
+	
 	public Rational add(Rational other) {                     //Adds the 2 fractions together
 		BigInteger D = this.myD.multiply(other.myD);
 		BigInteger N = (this.myN.multiply(other.myD)).add(other.myN.multiply(this.myD));
@@ -112,6 +113,11 @@ public class Rational {
 		BigInteger N = this.myN.multiply(other.myD);
 
 		return createSimplifiedRational(N,D);
+	}
+	
+	public boolean isEqual(Rational other)
+	{
+		return ((this.myD.equals(other.myD))&&(this.myN.equals(other.myN)));
 	}
 	
 	public String toString() {                           //how a fraction is displayed in the Program main

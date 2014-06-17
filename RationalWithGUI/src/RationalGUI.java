@@ -107,7 +107,11 @@ public class RationalGUI extends JFrame implements  ActionListener  {
     
     public static boolean isTooBig(String s)
    	{
-    	if(s.startsWith("-")&&s.length()>10){return true;}
+    	if(s.startsWith("-"))
+    	{
+    		if(s.length()>10){return true;}
+    		else{return false;}
+    	}
         else if(s.length()>9){return true;}
    		return false;
    	}
