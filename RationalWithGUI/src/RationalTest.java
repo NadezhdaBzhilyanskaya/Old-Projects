@@ -22,10 +22,10 @@ public class RationalTest {
 		Rational r8 = r5.simplify();
 		Rational r9 = r6.simplify();
 		
-		assertTrue(r4.isEqual(r2));
-		assertTrue(r8.isEqual(r2));
-		assertTrue(r9.isEqual(r7));
-		assertFalse(r4.isEqual(r3));
+		assertTrue(r4.equals(r2));
+		assertTrue(r8.equals(r2));
+		assertTrue(r9.equals(r7));
+		assertFalse(r4.equals(r3));
 	}
 
 	@Test
@@ -36,10 +36,10 @@ public class RationalTest {
 		Rational r4 = new Rational(1,3);
 		Rational r5 = r1.subtract(r2);
 		
-		assertTrue(r5.isEqual(r3));
+		assertTrue(r5.equals(r3));
 		// that is not required if r5 == r3 and r4 != r3
 		// it never fails
-		assertFalse(r5.isEqual(r4));
+		assertFalse(r5.equals(r4));
 	}
 	
 
@@ -51,8 +51,8 @@ public class RationalTest {
 		Rational r4 = new Rational(1,3);
 		Rational r5 = r1.add(r2);
 		
-		assertTrue(r5.isEqual(r3));
-		assertFalse(r5.isEqual(r4));
+		assertTrue(r5.equals(r3));
+		assertFalse(r5.equals(r4));
 	}
 
 	@Test
@@ -63,8 +63,8 @@ public class RationalTest {
 		Rational r4 = new Rational(3,4);
 		Rational r5 = r1.multiply(r2);
 		
-		assertTrue(r5.isEqual(r3));
-		assertFalse(r5.isEqual(r4));
+		assertTrue(r5.equals(r3));
+		assertFalse(r5.equals(r4));
 	}
 
 	@Test
@@ -75,26 +75,26 @@ public class RationalTest {
 		Rational r4 = new Rational(1,5);
 		Rational r5 = r1.divide(r2);
 
-		assertTrue(r5.isEqual(r3));
-		assertFalse(r5.isEqual(r4));
+		assertTrue(r5.equals(r3));
+		assertFalse(r5.equals(r4));
 	}
 	
 	@Test
-	public void testIsEqual() {
+	public void testequals() {
 		Rational r1 = new Rational(33,44);
 		Rational r2 = new Rational(1,44);
 		Rational r3 = new Rational(33,44);
 		
-		assertFalse(r1.isEqual(r2));
-		assertTrue(r1.isEqual(r3));
+		assertFalse(r1.equals(r2));
+		assertTrue(r1.equals(r3));
 	}
 	
 	@Test
-	public void testIsEqualDifferentRepresentation() {
+	public void testequalsDifferentRepresentation() {
 		Rational r1 = new Rational(33,44);
 		Rational r2 = new Rational(33*123,44*123);
 		
-		assertTrue(r1.isEqual(r2));
+		assertTrue(r1.equals(r2));
 	}
 
 }

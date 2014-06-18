@@ -3,9 +3,14 @@ import java.awt.event.*;
 
 import javax.swing.*;
 
-
+/**
+ * Class which creates the GUI and makes it run.
+ * 
+ * @author Dulia
+ *
+ */
 public class RationalGUI extends JFrame implements  ActionListener  {
-	JLabel title;                                                  //Parts of The GUI
+	JLabel title;                                                  
     JLabel subtitle1;
     JLabel subtitle2;
     JTextField input1N;
@@ -22,6 +27,9 @@ public class RationalGUI extends JFrame implements  ActionListener  {
     JTextField input1D;
     JTextField input2D;
 
+    /**
+     * Adds text to all the necessary parts of the GUI and adds them to the layout
+     */
     public RationalGUI() {
         RationalGUILayout customLayout = new RationalGUILayout();
 
@@ -94,32 +102,6 @@ public class RationalGUI extends JFrame implements  ActionListener  {
         });
     }
     
-    // maybe move isNumber and isTooBig to separate class
-    public static boolean isNumber(String s)
-	{
-		for(int x = 0; x < s.length(); x++)
-		{	
-			int charnum = (int)(s.charAt(x));
-			// hard to know what these values mean
-			if(x==0 && charnum==45){}
-			else if(charnum < 48 || charnum > 57){return false;}
-		}
-		return true;
-	}
-    
-    public static boolean isTooBig(String s)
-   	{
-    	// combine ifs
-    	if(s.startsWith("-"))
-    	{
-    		if(s.length()>10){return true;}
-    		else{return false;}
-    	}
-        else if(s.length()>9){return true;}
-   		return false;
-   	}
-    
-
     public static void main(String args[]) {
         RationalGUI window = new RationalGUI();        
         window.setTitle("Rational Calculator");
@@ -139,7 +121,7 @@ public class RationalGUI extends JFrame implements  ActionListener  {
 		{
 			errorFeild.setText("Missing information, please complete");
 		}
-		else if(!(isNumber(n1) && isNumber(d1) && isNumber(n2) && isNumber(d2)))  //Checks if all inputs are numbers
+		else if(!(Utils.isNumber(n1) && Utils.isNumber(d1) && Utils.isNumber(n2) && Utils.isNumber(d2)))  //Checks if all inputs are numbers
 		{
 			errorFeild.setText("All inputs must be integers");	
 		}
@@ -147,7 +129,7 @@ public class RationalGUI extends JFrame implements  ActionListener  {
 		{
 			errorFeild.setText("Denominator can not be 0");
 		}
-		else if(isTooBig(n1) || isTooBig(d1) || isTooBig(n2) || isTooBig(d2))        //checks to make sure numbers are small enough to be processed
+		else if(Utils.isTooBig(n1) || Utils.isTooBig(d1) || Utils.isTooBig(n2) || Utils.isTooBig(d2))        //checks to make sure numbers are small enough to be processed
 		{
 			errorFeild.setText("All numbers must be less than 1000000000");
 		}

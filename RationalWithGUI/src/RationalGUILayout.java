@@ -4,6 +4,12 @@ import java.awt.Dimension;
 import java.awt.Insets;
 import java.awt.LayoutManager;
 
+/**
+ * Class which creates all the components of the GUI as well as specifies their locations in the container.
+ * 
+ * @author Dulia
+ *
+ */
 class RationalGUILayout implements LayoutManager {
 
     public RationalGUILayout() {
