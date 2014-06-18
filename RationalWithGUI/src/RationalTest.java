@@ -33,13 +33,9 @@ public class RationalTest {
 		Rational r1 = new Rational(1,2);
 		Rational r2 = new Rational(1,4);
 		Rational r3 = new Rational(1,4);
-		Rational r4 = new Rational(1,3);
 		Rational r5 = r1.subtract(r2);
 		
 		assertTrue(r5.equals(r3));
-		// that is not required if r5 == r3 and r4 != r3
-		// it never fails
-		assertFalse(r5.equals(r4));
 	}
 	
 
@@ -60,11 +56,9 @@ public class RationalTest {
 		Rational r1 = new Rational(1,2);
 		Rational r2 = new Rational(1,4);
 		Rational r3 = new Rational(1,8);
-		Rational r4 = new Rational(3,4);
 		Rational r5 = r1.multiply(r2);
 		
 		assertTrue(r5.equals(r3));
-		assertFalse(r5.equals(r4));
 	}
 
 	@Test
@@ -72,11 +66,9 @@ public class RationalTest {
 		Rational r1 = new Rational(1,2);
 		Rational r2 = new Rational(1,4);
 		Rational r3 = new Rational(2,1);
-		Rational r4 = new Rational(1,5);
 		Rational r5 = r1.divide(r2);
 
 		assertTrue(r5.equals(r3));
-		assertFalse(r5.equals(r4));
 	}
 	
 	@Test
@@ -86,7 +78,6 @@ public class RationalTest {
 		Rational r3 = new Rational(33,44);
 		
 		assertFalse(r1.equals(r2));
-		assertTrue(r1.equals(r3));
 	}
 	
 	@Test
