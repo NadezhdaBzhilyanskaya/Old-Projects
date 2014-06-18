@@ -4,6 +4,11 @@ import org.junit.Test;
 
 
 public class RationalTest {
+	
+	@Test(expected=java.lang.IllegalArgumentException.class)
+	public void testRationalCtorFromString() {
+		Rational number = new Rational("1", "0");
+	}
 
 	@Test
 	public void testSimplify() {
@@ -32,6 +37,8 @@ public class RationalTest {
 		Rational r5 = r1.subtract(r2);
 		
 		assertTrue(r5.isEqual(r3));
+		// that is not required if r5 == r3 and r4 != r3
+		// it never fails
 		assertFalse(r5.isEqual(r4));
 	}
 	
@@ -80,6 +87,14 @@ public class RationalTest {
 		
 		assertFalse(r1.isEqual(r2));
 		assertTrue(r1.isEqual(r3));
+	}
+	
+	@Test
+	public void testIsEqualDifferentRepresentation() {
+		Rational r1 = new Rational(33,44);
+		Rational r2 = new Rational(33*123,44*123);
+		
+		assertTrue(r1.isEqual(r2));
 	}
 
 }
